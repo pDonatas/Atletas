@@ -4,6 +4,6 @@ return [
     "eating" => "Mytyba",
     "muscles" => "Raumenys",
     "City" => "Miestas",
-    "submit" => "Patvirtinti",
+    "Submit" => "Patvirtinti",
     "Advertisement" => "Reklama"
 ];

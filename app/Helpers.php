@@ -8,6 +8,38 @@ use Illuminate\Support\Facades\DB;
 
 class Helpers
 {
+    public static function getClients($id)
+    {
+        $clients = Client::client($id);
+        $users = [];
+        foreach ($clients as $client) {
+            array_push($users, User::findOrFail($client->client));
+        }
+        return $users;
+    }
+
+    public static function day($day)
+    {
+        switch ($day) {
+            case '1':
+                return 'Pirmadienis';
+            case '2':
+                return 'Antradienis';
+            case '3':
+                return 'Trečiadienis';
+            case '4':
+                return 'Ketvirtadienis';
+            case '5':
+                return 'Penktadienis';
+            case '6':
+                return 'Šeštadienis';
+            case '7':
+                return 'Sekmadienis';
+            default:
+                return 'Įvyko klaida bandant gauti dieną';
+        }
+    }
+
     public static function cat($category)
     {
         $ns = new NewsService();

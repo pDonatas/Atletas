@@ -32,7 +32,7 @@ class UserController extends Controller
 
     public function edit()
     {
-        return view('users.edit')->withUser($this->user);
+        return view('users.edit')->withUser(Auth::user());
     }
 
     public function submit(Request $request)

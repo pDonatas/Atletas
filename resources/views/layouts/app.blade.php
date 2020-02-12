@@ -161,6 +161,9 @@
                                     <li class="list-group-item"><a
                                             href="{{route('user.edit', app()->getLocale())}}">{{__('user.profile_edit')}}</a>
                                     </li>
+                                    <li class="list-group-item">
+                                        <a href="{{route('schedule.index', app()->getLocale())}}">{{__('schedule.title')}}</a>
+                                    </li>
                                     @if(Auth::user()->type == 1)
                                         <li class="list-group-item"><a
                                                 href="{{route('user.write', app()->getLocale())}}">{{__('user.writearticle')}}</a>

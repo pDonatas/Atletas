@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers;
 use App\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +21,16 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('schedule.index', [
-            Schedule::user(Auth::id())
-        ]);
+        if (Auth::user()->type == 0)
+            return view('schedule.index', [
+                'schedule' => Schedule::user(Auth::id())
+            ]);
+        else {
+            return view('schedule.index', [
+                'schedule' => Schedule::user(Auth::id()),
+                'users' => Helpers::getClients(Auth::id())
+            ]);
+        }
     }
 
     /**
@@ -44,7 +57,7 @@ class ScheduleController extends Controller
             'trainer' => Auth::id(),
             'day' => $request->input('day'),
             'time' => $request->input('time'),
-            'text' => $request->input('text')
+            'text' => $request->input('event')
         ]);
         $sched->save();
         return redirect(route('schedule.index', app()->getLocale()));
@@ -54,7 +67,7 @@ class ScheduleController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
@@ -66,7 +79,7 @@ class ScheduleController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {

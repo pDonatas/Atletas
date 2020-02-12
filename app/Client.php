@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Client extends Model
 {
@@ -15,4 +16,13 @@ class Client extends Model
         'created_at',
         'updated_at'
     ];
+
+    public static function client($id)
+    {
+        return DB::table('clients')
+            ->where('trainer', $id)
+            ->where('trainer_submit', 1)
+            ->where('client_submit', 1)
+            ->get();
+    }
 }

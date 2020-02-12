@@ -60,6 +60,20 @@ Route::group([
                 ],
             ]
         );
+        Route::resource('schedule',
+            'ScheduleController',
+            [
+                'names' => [
+                    'index' => 'schedule.index',
+                    'create' => 'schedule.create',
+                    'store' => 'schedule.store',
+                    'update' => 'schedule.update',
+                    'show' => 'schedule.show',
+                    'edit' => 'schedule.edit',
+                    'destroy' => 'schedule.destroy'
+                ],
+            ]
+        );
     });
 Route::get('/', function () {
     return redirect()->route('index', app()->getLocale());
