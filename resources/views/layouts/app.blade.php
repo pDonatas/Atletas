@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{Helper::system()->title}}</title>
 
     <!-- Scripts -->
     <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
@@ -124,13 +124,6 @@
                                     </form>
                                 </div>
                             </div>
-
-                            <!--<hr>
-                            <ul class="list-group">
-                                <li class="list-group-item"><a href="#">Mano straipsniai</a></li>
-                                <li class="list-group-item"><a href="#">Mano treniruočių programos</a></li>
-                                <li class="list-group-item"><a href="#">Mano treniruojami žmonės</a></li>
-                            </ul>-->
                         </div>
                     @endguest
                 </div>
@@ -169,6 +162,12 @@
                                                 href="{{route('user.write', app()->getLocale())}}">{{__('user.writearticle')}}</a>
                                         </li>
                                     @endif
+                                    <li class="list-group-item">
+                                        <a href="{{route('ads.new', app()->getLocale())}}">{{__('ads.new')}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="{{route('orders.index', app()->getLocale())}}">{{__('orders.list')}}</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

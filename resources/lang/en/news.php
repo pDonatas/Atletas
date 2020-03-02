@@ -5,5 +5,6 @@ return [
     'category' => 'Category',
     'image' => 'Image',
     'text' => 'Text',
-    'write_title' => 'News writing'
+    'write_title' => 'News writing',
+    'edit_title' => 'Edit news'
 ];

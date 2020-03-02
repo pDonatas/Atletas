@@ -14,5 +14,6 @@ return [
     'day7' => 'Sekmadienis',
     'user' => 'Vartotojas',
     'time' => 'Laikas',
-    'event' => 'Užduotis'
+    'event' => 'Užduotis',
+    'edit' => 'Tvarkaraščio redagavimas'
 ];

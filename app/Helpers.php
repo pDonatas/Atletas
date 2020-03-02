@@ -63,6 +63,8 @@ class Helpers
                 return trans('user.user');
             case '1':
                 return trans('user.trainer');
+            case '2':
+                return trans('user.admin');
             default:
                 return trans('user.unknown');
         }
@@ -94,5 +96,51 @@ class Helpers
         if (Count(DB::table('clients')->where('trainer', $user)->where('client', Auth::id())->get()) > 0)
             return true;
         return false;
+    }
+
+    public static function getSysMessages()
+    {
+        return DB::table('chats')->where('chat_id', 0)->get();
+    }
+
+    public static function status($type)
+    {
+        switch ($type) {
+            case '0':
+                return 'Nepatvirtinta';
+            case '1':
+                return 'Patvirtinta';
+            case '2':
+                return 'Nesumokėta';
+        }
+    }
+
+    public static function system()
+    {
+        return System::findOrFail(1);
+    }
+
+    public static function orderType($type)
+    {
+        switch ($type) {
+            default:
+                return trans('orders.unknown');
+            case '1':
+                return trans('orders.subscription');
+            case '2':
+                return trans('orders.advertisement');
+        }
+    }
+
+    public static function orderStatus($status)
+    {
+        switch ($status) {
+            case '0':
+                return trans('orders.unpaid');
+            case '1':
+                return trans('orders.paid');
+            default:
+                return trans('orders.unknown');
+        }
     }
 }

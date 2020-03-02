@@ -14,5 +14,6 @@ return [
     'day7' => 'Sunday',
     'user' => 'User',
     'time' => 'Time',
-    'event' => 'Task'
+    'event' => 'Task',
+    'edit' => 'Schedule edit'
 ];

@@ -5,5 +5,6 @@ return [
     "muscles" => "Raumenys",
     "City" => "Miestas",
     "Submit" => "Patvirtinti",
-    "Advertisement" => "Reklama"
+    "Advertisement" => "Reklama",
+    "submit" => "Patvirtinti"
 ];

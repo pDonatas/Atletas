@@ -5,5 +5,6 @@ return [
     "muscles" => "Muscles",
     "City" => "City",
     "Submit" => "Submit",
-    "Advertisement" => "Advertisement"
+    "Advertisement" => "Advertisement",
+    "submit" => "Submit"
 ];

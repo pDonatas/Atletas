@@ -15,9 +15,9 @@ class AdsService
 
     public function getRand()
     {
-        $ads = Ads::all();
+        $ads = Ads::payed();
         if (count($ads) > 0) {
-            $ads = Ads::all()->random()->get();
+            $ads = Ads::payed();
         }
         return $ads;
     }

@@ -1,4 +1,4 @@
-@extends('layouts.appBasic')
+@extends('layouts.app')
 
 @section('content')
     @forelse($trainers as $trainer)

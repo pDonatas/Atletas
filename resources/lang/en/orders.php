@@ -1,0 +1,20 @@
+<?php
+return [
+    'list' => 'Orders list',
+    'unknown' => 'Unknown',
+    'article' => 'Article',
+    'training' => 'Training',
+    'advertisement' => 'Advertisement',
+    'type' => 'Type',
+    'price' => 'Price',
+    'status' => 'Status',
+    'date' => 'Order date',
+    'paid' => 'Paid',
+    'unpaid' => 'Unpaid',
+    'pay' => 'Pay',
+    'error' => '<strong>Error</strong> Unexpected error occurred, we have informed administration about it',
+    'success' => '<strong>Success</strong> You successfully paid for items',
+    'cancel' => '<strong>Error</strong> Payment has been canceled',
+    'title' => 'Payment system',
+    'subscription' => 'Subscription',
+];

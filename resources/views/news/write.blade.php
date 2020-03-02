@@ -1,4 +1,4 @@
-@extends('layouts.appBasic')
+@extends('layouts.app')
 @section('content')
     <div class="card">
         <div class="card-header">{{__('news.write_title')}}</div>

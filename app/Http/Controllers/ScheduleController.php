@@ -6,6 +6,9 @@ use App\Helpers;
 use App\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Kris\LaravelFormBuilder\Field;
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class ScheduleController extends Controller
 {
@@ -73,6 +76,52 @@ class ScheduleController extends Controller
     {
         $schedule = Schedule::findOrFail($id);
         return view('schedule.show', compact('schedule'));
+    }
+
+    public function editparted($lang, $id, FormBuilder $formBuilder, Request $request)
+    {
+        if ($id == 2) {
+            $user = $request->input('user');
+            session(['training_user' => $user]);
+            $form = $formBuilder->createByArray([
+                [
+                    'name' => 'day',
+                    'label' => trans('schedule.day'),
+                    'type' => Field::SELECT,
+                    'choices' => [
+                        '1' => trans('schedule.day1'),
+                        '2' => trans('schedule.day2'),
+                        '3' => trans('schedule.day3'),
+                        '4' => trans('schedule.day4'),
+                        '5' => trans('schedule.day5'),
+                        '6' => trans('schedule.day6'),
+                        '7' => trans('schedule.day7'),
+                    ]
+                ],
+                [
+                    'name' => 'ok',
+                    'label' => trans('page.Submit'),
+                    'type' => Field::BUTTON_SUBMIT,
+                    'attr' => [
+                        'class' => 'btn btn-outline-dark form-control'
+                    ]
+                ],
+            ], [
+                'method' => 'POST',
+                'url' => route('schedule.edit.part', [app()->getLocale(), 3])
+            ]);
+            return view('schedule.edit', compact('form'));
+        } else if ($id == 3) {
+            $day = $request->input('day');
+            return view('schedule.edit', [
+                'schedule' => DB::table('schedules')
+                    ->where('user', session('training_user'))
+                    ->where('trainer', Auth::id())
+                    ->where('day', $day)
+                    ->get()
+            ]);
+        }
+        return abort(404);
     }
 
     /**

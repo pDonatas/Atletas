@@ -5,5 +5,6 @@ return [
     'category' => 'Kategorija',
     'image' => 'Nuotrauka',
     'text' => 'Tekstas',
-    'write_title' => 'Naujienos rašymas'
+    'write_title' => 'Naujienos rašymas',
+    'edit_title' => 'Naujienos redagavimas'
 ];

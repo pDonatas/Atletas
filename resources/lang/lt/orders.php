@@ -1,0 +1,20 @@
+<?php
+return [
+    'list' => 'Užsakymų sąrašas',
+    'unknown' => 'Nežinoma',
+    'article' => 'Straipsnis',
+    'training' => 'Treniravimas',
+    'advertisement' => 'Reklama',
+    'type' => 'Tipas',
+    'price' => 'Kaina',
+    'status' => 'Statusas',
+    'date' => 'Užsakymo data',
+    'paid' => 'Sumokėta',
+    'unpaid' => 'Nesumokėta',
+    'pay' => 'Sumokėti',
+    'error' => '<strong>Klaida</strong> Įvyko nenumatyta klaida, apie tai pranešta administracijai',
+    'success' => '<strong>Pavyko</strong> Mokėjimas sėkmingai įvykdytas',
+    'cancel' => '<strong>Klaida</strong> Mokėjimas atšauktas',
+    'title' => 'Mokėjimų sistema',
+    'subscription' => 'Prenumerata',
+];

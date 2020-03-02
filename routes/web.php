@@ -60,6 +60,7 @@ Route::group([
                 ],
             ]
         );
+        Route::post('/schedule/edit/part/{id}', 'ScheduleController@editparted')->name('schedule.edit.part');
         Route::resource('schedule',
             'ScheduleController',
             [
@@ -74,7 +75,51 @@ Route::group([
                 ],
             ]
         );
+        Route::get('/ads/new', 'AdvertisementController@New')->name('ads.new');
+        Route::post('/ads/submit', 'AdvertisementController@Submit')->name('ads.submit');
+        Route::get('/pay/error', 'OrderController@payError')->name('error_pay');
+        Route::get('/pay/cancel', 'OrderController@payCancel')->name('cancel_pay');
+        Route::get('/pay/accept', 'OrderController@payAccept')->name('accept_pay');
+        Route::get('/pay/callback', 'OrderController@payCallback')->name('callback_pay');
+        Route::get('/pay/{type}/{id}', 'OrderController@pay')->name('orders.pay');
+        Route::resource('orders',
+            'OrderController',
+            [
+                'names' => [
+                    'index' => 'orders.index',
+                    'create' => 'orders.create',
+                    'store' => 'orders.store',
+                    'update' => 'orders.update',
+                    'show' => 'orders.show',
+                    'edit' => 'orders.edit',
+                    'destroy' => 'orders.destroy'
+                ],
+            ]
+        );
     });
 Route::get('/', function () {
     return redirect()->route('index', app()->getLocale());
 });
+//Administravimas
+Route::get('/admin', 'AdminController@index');
+//Naujienos
+Route::get('/admin/news', 'NewsController@index')->name('admin.news');
+Route::get('/admin/news/submit/{id}', 'NewsController@submit');
+Route::get('/admin/news/remove/{id}', 'NewsController@destroy');
+Route::post('/admin/news/submit', 'NewsController@write')->name('admin.news.submit');
+Route::get('/admin/news/edit/{id}', 'NewsController@edit');
+Route::post('/admin/news/edit/{id}', 'NewsController@update')->name('admin.news.edit');
+//Kategorijos
+Route::post('/admin/categories/add', 'CategoriesController@store')->name('admin.categories.add');
+Route::get('/admin/categories/remove/{id}', 'CategoriesController@destroy')->name('admin.categories.remove');
+Route::get('admin/categories/edit/{id}', 'CategoriesController@edit')->name('admin.categories.edit');
+Route::post('/admin/categories/edit/{id}', 'CategoriesController@update')->name('admin.categories.update');
+//Vartotojai
+Route::get('/admin/users', 'AdminController@users')->name('admin.users');
+Route::post('/admin/user/add', 'AdminController@storeUser')->name('admin.users.add');
+Route::get('/admin/user/edit/{id}', 'AdminController@editUser')->name('admin.user.edit');
+Route::post('/admin/user/edit/{id}', 'AdminController@updateUser')->name('admin.user.update');
+Route::get('/admin/user/remove/{id}', 'AdminController@removeUser')->name('admin.user.remove');
+//Sistema
+Route::get('/admin/system', 'SystemController@index')->name('admin.system');
+Route::post('/admin/system/update', 'SystemController@update')->name('admin.system.update');

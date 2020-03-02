@@ -3,10 +3,12 @@ return [
     'name' => 'Name',
     'surname' => 'Surname',
     'type' => 'Type',
+    'password' => 'Passowrd',
     'not_found_all' => 'Sorry, we could not found any user that matches your search criteria',
     'not_found' => 'Sorry, but this user does not exist',
     'trainer' => 'Trainer',
     'user' => 'User',
+    'admin' => 'Administrator',
     'unknown' => 'Unknown',
     'profile_edit' => 'Profile edit',
     'training_type' => 'Training types (separate by commas)',
@@ -16,5 +18,7 @@ return [
     'video' => 'Link to video',
     'email' => 'Email',
     'new_photo' => 'New photo',
-    'writearticle' => 'Write article'
+    'writearticle' => 'Write article',
+    'register' => 'Register',
+    'edit' => 'Edit'
 ];

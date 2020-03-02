@@ -94,6 +94,6 @@ class UserController extends Controller
         if (Auth::user()->type == 1) {
             return view('news.write');
         }
-        return redirect(route('home', app()->getLocale()));
+        return redirect('/');
     }
 }

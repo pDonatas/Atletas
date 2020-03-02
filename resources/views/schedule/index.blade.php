@@ -2,6 +2,23 @@
 @section('content')
     @if(Auth::user()->type == 1)
         <div class="card">
+            <div class="card-header">{{__('schedule.edit')}}</div>
+            <div class="card-body">
+                <form method="post" action="{{route('schedule.edit.part', [app()->getLocale(), 2])}}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="user">{{__('schedule.user')}}</label>
+                        <select class="form-control" name="user" id="user">
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <input type="submit" class="btn btn-outline-dark form-control" value="{{__('page.Submit')}}">
+                </form>
+            </div>
+        </div>
+        <div class="card">
             <div class="card-header">{{__('schedule.add')}}</div>
             <div class="card-body">
                 <form method="post" action="{{route('schedule.store', app()->getLocale())}}">
