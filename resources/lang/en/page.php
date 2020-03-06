@@ -6,5 +6,6 @@ return [
     "City" => "City",
     "Submit" => "Submit",
     "Advertisement" => "Advertisement",
-    "submit" => "Submit"
+    "submit" => "Submit",
+    "privacypolicy" => "Privacy policy"
 ];

@@ -17,6 +17,7 @@ Route::group([
     'middleware' => 'setlocale'],
     function () {
         Route::pattern('id', '[0-9]+'); // Reikalaujam kad visi id butu tik numeriai
+        Route::get('privacypolicy', 'HomeController@policy')->name('policy');
         //Basic
         Route::get('/', function () {
             return redirect()->route('index', app()->getLocale());

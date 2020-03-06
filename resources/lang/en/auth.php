@@ -23,6 +23,7 @@ return [
     "Forgot Your Password?" => "Forgot Your Password?",
     "Confirm Password" => "Confirm Password",
     "Name" => "Name",
-    "eula" => "You agree that all your information will be saved in our servers."
+    "eula" => "You agree that all your information will be saved in our servers.",
+    "policy" => "I agree with this <a href='" . route('policy', app()->getLocale()) . "'>" . trans('page.privacypolicy') . "</a>"
 
 ];

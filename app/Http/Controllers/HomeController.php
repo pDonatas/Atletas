@@ -29,4 +29,9 @@ class HomeController extends Controller
             'trainers' => $newtrainers
         ]);
     }
+
+    public function policy()
+    {
+        return view('privacy_policy');
+    }
 }

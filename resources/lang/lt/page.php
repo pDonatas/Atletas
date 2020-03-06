@@ -6,5 +6,6 @@ return [
     "City" => "Miestas",
     "Submit" => "Patvirtinti",
     "Advertisement" => "Reklama",
-    "submit" => "Patvirtinti"
+    "submit" => "Patvirtinti",
+    "privacypolicy" => "Privatumo politika"
 ];
