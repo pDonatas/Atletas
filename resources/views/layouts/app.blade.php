@@ -110,6 +110,8 @@
                                             <li>{{__('user.type')}}:
                                                 @if(Auth()->user()->type == 1)
                                                     Treneris
+                                                @elseif(Auth()->user()->type == 2)
+                                                    Administratorius
                                                 @else
                                                     Vartotojas
                                                 @endif
